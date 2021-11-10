@@ -190,6 +190,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import FaceTecSDK;
+@import Foundation;
 @import ObjectiveC;
 #endif
 
@@ -216,6 +218,25 @@ SWIFT_CLASS("_TtC9AcessoBio16InitialSwiftFile")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+@class UIViewController;
+@class UnicoCheck;
+@protocol FaceTecSessionResult;
+@protocol FaceTecFaceScanResultCallback;
+@class NSURLSession;
+@class NSURLSessionTask;
+@class NSNumber;
+
+SWIFT_CLASS("_TtC9AcessoBio22LivenessCheckProcessor")
+@interface LivenessCheckProcessor : NSObject <FaceTecFaceScanProcessorDelegate, NSURLSessionTaskDelegate>
+- (nonnull instancetype)initWithSessionToken:(NSString * _Nonnull)sessionToken fromViewController:(UIViewController * _Nonnull)fromViewController pUnicoCheck:(UnicoCheck * _Nonnull)pUnicoCheck OBJC_DESIGNATED_INITIALIZER;
+- (void)processSessionWhileFaceTecSDKWaits:(id <FaceTecSessionResult> _Nonnull)sessionResult faceScanResultCallback:(id <FaceTecFaceScanResultCallback> _Nonnull)faceScanResultCallback;
+- (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
+- (void)onFaceTecSDKCompletelyDone;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop
@@ -414,6 +435,8 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 #if __has_warning("-Watimport-in-framework-header")
 #pragma clang diagnostic ignored "-Watimport-in-framework-header"
 #endif
+@import FaceTecSDK;
+@import Foundation;
 @import ObjectiveC;
 #endif
 
@@ -440,6 +463,25 @@ SWIFT_CLASS("_TtC9AcessoBio16InitialSwiftFile")
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
+@class UIViewController;
+@class UnicoCheck;
+@protocol FaceTecSessionResult;
+@protocol FaceTecFaceScanResultCallback;
+@class NSURLSession;
+@class NSURLSessionTask;
+@class NSNumber;
+
+SWIFT_CLASS("_TtC9AcessoBio22LivenessCheckProcessor")
+@interface LivenessCheckProcessor : NSObject <FaceTecFaceScanProcessorDelegate, NSURLSessionTaskDelegate>
+- (nonnull instancetype)initWithSessionToken:(NSString * _Nonnull)sessionToken fromViewController:(UIViewController * _Nonnull)fromViewController pUnicoCheck:(UnicoCheck * _Nonnull)pUnicoCheck OBJC_DESIGNATED_INITIALIZER;
+- (void)processSessionWhileFaceTecSDKWaits:(id <FaceTecSessionResult> _Nonnull)sessionResult faceScanResultCallback:(id <FaceTecFaceScanResultCallback> _Nonnull)faceScanResultCallback;
+- (void)URLSession:(NSURLSession * _Nonnull)session task:(NSURLSessionTask * _Nonnull)task didSendBodyData:(int64_t)bytesSent totalBytesSent:(int64_t)totalBytesSent totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend;
+- (void)onFaceTecSDKCompletelyDone;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 
 #if __has_attribute(external_source_symbol)
 # pragma clang attribute pop

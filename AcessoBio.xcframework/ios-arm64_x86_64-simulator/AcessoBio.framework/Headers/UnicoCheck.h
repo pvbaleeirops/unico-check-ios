@@ -16,11 +16,17 @@
 #import <FaceTecSDK/FaceTecSDK.h>
 #endif
 
+#if __has_include(<FaceTecSDK/FaceTecPublicApi.h>)
+#import <FaceTecSDK/FaceTecPublicApi.h>
+#endif
+
 #import "ErrorBio.h"
 #import "iAcessoBioBuilder.h"
 #import "AcessoBioManagerDelegate.h"
 #import "AcessoBioSelfieDelegate.h"
 #import "AcessoBioDocumentDelegate.h"
+
+#import "ConfigObjc.h"
 
 @class CameraFaceView;
 @class DocumentInsertView;
@@ -52,10 +58,11 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
     
     BOOL hasImplementationError;
     
+    BOOL facetecHasIncluded;
 #if __has_include(<FaceTecSDK/FaceTecSDK.h>)
     id<FaceTecSessionResult> _Nonnull latestSessionResult;
 #endif
-    
+
 }
 
 
@@ -130,5 +137,13 @@ typedef NS_ENUM(NSInteger, LanguageOrigin) {
 #pragma mark Document
 - (void)onSuccessDocument: (DocumentResult *)result;
 - (void)onErrorDocument:(ErrorBio *)error;
+
+
+#pragma mark - FaceTec
+#if __has_include(<FaceTecSDK/FaceTecSDK.h>)
+- (void)setLatestSessionResult : (id<FaceTecSessionResult> _Nonnull) sessionResult;
+#endif
+- (void)onComplete;
+
 @end
 
